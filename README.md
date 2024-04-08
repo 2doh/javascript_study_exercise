@@ -88,3 +88,6 @@ console.log(member.name);
 ```
 
 ## 심볼 symbol
+
+- number, string, boolean과 같은 원시데이터
+- 유일한 식별자로서
