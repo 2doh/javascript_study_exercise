@@ -1,31 +1,90 @@
-# 2. variable(변수)
+# 3. 데이터형(Data Type)
 
-- 데이터가 컴퓨터 메모리에 저장되는 주소
+- number
+- string
+- boolean
+- null
+- undefined
+- Bigint
+- object
+- symbol
 
-# 2.1 변수 선언
-
-- var, let, const // 변수 선언 키워드
-- const를 주로 사용하고 안되면 let으로 교체
-
-```js
-let keyword = "키워드 let으로 변수 keyword를 선언";
-console.log(keyword);
-// 필요에 따라 값을 재활용 할 수 있다.
-keyword = "변수 keyword에 홍길동 저장 keyword는 홍길동 값을 가짐";
-console.log(keyword);
-```
-
-## 2.1.2 변수 이름 짓기
-
-- 변수 이름에는 영어, 숫자, 밑줄,$ 사용가능
-- **숫자로 시작하면 안됨**
-- 대소문자 반드시 구분
-- 일반적으로 카멜케이스 사용
+## 3.1 숫자 number
 
 ```js
-const a = 5;
-const font1 = "돋움";
-const _price = 30000;
-const maxWidth = 600;
-const max_width = 800;
+const a = 3; // 정수(integer)
+const b = 5.7; // 부동 소수점 숫자(floating point number)
+const c = 123e3; // 123*10^3
+const d = 123e-3; // 123*10^-3
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
 ```
+
+## Bigint
+
+- 정수는 15개의 숫자, 15자리 정수까지 나타낼 수 있다.
+- 그 이상의 정수를 사용하려면 Bigint 형 사용
+
+```js
+const e = 99999999999912312399987n; // 뒤에 n을 붙이면 숫자가 모두 보임, n을 붙인게 Bigint
+console.log(e);
+```
+
+## 문자열 string
+
+```js
+const text1 = "사 과"; // 큰 따옴표 사용
+console.log("text1에 저장된 내용 :", text1);
+
+// 문자열의 Length 프로퍼티 사용, 공백도 포함
+console.log("text1의 문자열 길이는" + " " + text1.length + "입니다 .");
+
+// 템플릿 문자열 ``
+let username = "홍길동";
+let age = 30;
+
+let text2 = "이름:" + username + "나이:" + age;
+console.log(text2);
+
+let text3 = `이름: ${username}, 나이는: ${age}`;
+console.log(text3);
+```
+
+## boolean
+
+```js
+let x = 5 > 3; //참
+let y = 5 < 3; //거짓
+
+console.log(x);
+console.log(y);
+```
+
+## undefined, null(빈 문자열)\
+
+```js
+let x = 5 > 3; //참
+let y = 5 < 3; //거짓
+
+console.log(x);
+console.log(y);
+```
+
+## 객체 object
+
+```js
+const member = {
+  id: "kdhong",
+  name: "홍길동",
+  age: 20,
+};
+
+console.log(member.id);
+console.log(member.age);
+console.log(member.name);
+```
+
+## 심볼 symbol
