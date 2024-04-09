@@ -1,13 +1,8 @@
-let a = 3,
-  b = "3",
-  c = 5,
-  d = 3;
+// 원의 넓이 구하기
+let r = 8;
+let area;
+const pi = 3.14;
 
-console.log(a == b); // a와 b가 같냐 ture
-console.log(a === b); // a와 b가 데이터 타입까지 같냐 false
-console.log(a != b); // a와 b가 다르냐 false
-console.log(a == b); // a와 b가 데이터 타입까지 다르냐 ture
-console.log(a > c); // false
-console.log(a < c); // ture
-console.log(a >= c); // flase
-console.log(a <= c); // ture
+area = r * r * pi;
+console.log(`반지름 : ${r}`);
+console.log(`원의 넓이 : ${area}`);
