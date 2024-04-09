@@ -1,123 +1,80 @@
-# 3. 데이터형(Data Type)
+# 4. 연산자
 
-- number
-- string
-- boolean
-- null
-- undefined
-- Bigint
-- object
-- symbol
+- 산술연산자
+- 할당연산자
+- 비교연산자
+- 논리연산자
 
-## 3.1 숫자 number
+## 4.1 산술연산자
 
-```js
-const a = 3; // 정수(integer)
-const b = 5.7; // 부동 소수점 숫자(floating point number)
-const c = 123e3; // 123*10^3
-const d = 123e-3; // 123*10^-3
-
-console.log(a);
-console.log(b);
-console.log(c);
-console.log(d);
+```txt
++
+-
+*
+/
+% 나머지 계산
+** 거듭제곱 계산
+++ 1증가
+-- 1감소
 ```
 
-## Bigint
-
-- 정수는 15개의 숫자, 15자리 정수까지 나타낼 수 있다.
-- 그 이상의 정수를 사용하려면 Bigint 형 사용
-
 ```js
-const e = 99999999999912312399987n; // 뒤에 n을 붙이면 숫자가 모두 보임, n을 붙인게 Bigint
+let a = 10;
+(b = 20), (c = 30), (d = 40), (e = 50);
+let f = "안녕";
+a += 3; // 13, a=a+3
+b -= 8; // 12, b= b-8
+c *= 2; // 60, c = c*2
+d /= 10; // 4, d=d/10
+e %= 6; // e=e%6
+f += "하세요"; // "안녕하세요", f=f+"하세요"
 console.log(e);
 ```
 
-## 문자열 string
+## 4.2 할당연산자
+
+- 할당(assignment) 연산자는 데이터나 변수 값을 변수에 저장, 즉 메모리 공간을 할당하는 역할
 
 ```js
-const text1 = "사 과"; // 큰 따옴표 사용
-console.log("text1에 저장된 내용 :", text1);
+let a = 10;
+(b = 20), (c = 30), (d = 40);
+```
 
-// 문자열의 Length 프로퍼티 사용, 공백도 포함
-console.log("text1의 문자열 길이는" + " " + text1.length + "입니다 .");
-
-// 템플릿 문자열 ``
-let username = "홍길동";
+```js
+let name = "홍길동";
+let tel = "010-1234-5678";
 let age = 30;
 
-let text2 = "이름:" + username + "나이:" + age;
-console.log(text2);
+let text = "";
+text += "<table border=1>";
+text += "<tr><th>이름</th><th>전화번호</th><th>나이</th></tr>";
+text +=
+  "<tr><td>" + name + "</td><td>" + tel + "</td><td>" + age + "</td></tr>";
+text += "</table>";
 
-let text3 = `이름: ${username}, 나이는: ${age}`;
-console.log(text3);
+document.write(text);
 ```
 
-## boolean
+## 4.3 비교연산자
 
 ```js
-let x = 5 > 3; //참
-let y = 5 < 3; //거짓
+let a = 3,
+  b = "3",
+  c = 5,
+  d = 3;
 
-console.log(x);
-console.log(y);
+console.log(a == b); // a와 b가 같냐 ture
+console.log(a === b); // a와 b가 데이터 타입까지 같냐 false
+console.log(a != b); // a와 b가 다르냐 false
+console.log(a == b); // a와 b가 데이터 타입까지 다르냐 ture
+console.log(a > c); // false
+console.log(a < c); // ture
+console.log(a >= c); // flase
+console.log(a <= c); // ture
 ```
 
-## undefined, null(빈 문자열)\
+## 4.4 논리연산자
 
-```js
-let x = 5 > 3; //참
-let y = 5 < 3; //거짓
-
-console.log(x);
-console.log(y);
-```
-
-## 객체 object
-
-```js
-const member = {
-  id: "kdhong",
-  name: "홍길동",
-  age: 20,
-};
-
-console.log(member.id);
-console.log(member.age);
-console.log(member.name);
-```
-
-## 심볼 symbol
-
-- number, string, boolean과 같은 원시데이터
-- 유일한 식별자로서 객체의 속성을 추가하는데 사용
-
-```js
-const member = {
-  // 키 : 값  - 아래의 경우 키 = name 값 = 홍길동
-  name: "홍길동",
-  age: 30,
-};
-
-// Symbol()로 심볼 id 생성
-let id = Symbol("id");
-// 객체 member의 키 id에 문자열 "kdhong" 저장
-// 심볼 id가 객체의 키로 사용되면 심볼 데이터형은
-// 유일한 식별자이기 떄문에 객체의 키 이름이 겹쳐서 충돌하는 경우 방지
-member[id] = "kdhong";
-
-// 객체 member에서 심볼id가 키로 사용된 요소는
-// member[id]에 의해 접근 할 수 있다.
-// 심볼 id와 새롭게 생성된 Symbol(id)는 서로 다르다.
-console.log(id === Symbol("id"));
-```
-
-## 3.8 배열 array
-
-- index는 0부터 시작
-
-```js
-const car = ["현대", "기아", "벤츠", "BMW"];
-
-console.log(car[0]);
-```
+- && : AND - 두 조건이 모두 true일 경우에만 최종결과 true // 앞이 ture일때 뒤의 것도 확인함
+- || : OR - 두 조건 중 하나만 true가 되어도 최종결과 true // 앞이 ture면 뒤의 것 확인 안함
+- ! : NOT - 결과가 true인 경우 false, 반대로 false인 경우엔 true
