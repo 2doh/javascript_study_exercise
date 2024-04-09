@@ -90,4 +90,34 @@ console.log(member.name);
 ## 심볼 symbol
 
 - number, string, boolean과 같은 원시데이터
-- 유일한 식별자로서
+- 유일한 식별자로서 객체의 속성을 추가하는데 사용
+
+```js
+const member = {
+  // 키 : 값  - 아래의 경우 키 = name 값 = 홍길동
+  name: "홍길동",
+  age: 30,
+};
+
+// Symbol()로 심볼 id 생성
+let id = Symbol("id");
+// 객체 member의 키 id에 문자열 "kdhong" 저장
+// 심볼 id가 객체의 키로 사용되면 심볼 데이터형은
+// 유일한 식별자이기 떄문에 객체의 키 이름이 겹쳐서 충돌하는 경우 방지
+member[id] = "kdhong";
+
+// 객체 member에서 심볼id가 키로 사용된 요소는
+// member[id]에 의해 접근 할 수 있다.
+// 심볼 id와 새롭게 생성된 Symbol(id)는 서로 다르다.
+console.log(id === Symbol("id"));
+```
+
+## 3.8 배열 array
+
+- index는 0부터 시작
+
+```js
+const car = ["현대", "기아", "벤츠", "BMW"];
+
+console.log(car[0]);
+```
