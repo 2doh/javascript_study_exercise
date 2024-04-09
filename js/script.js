@@ -1,8 +1,22 @@
-// 원의 넓이 구하기
-let r = 8;
-let area;
-const pi = 3.14;
+let num = 9;
 
-area = r * r * pi;
-console.log(`반지름 : ${r}`);
-console.log(`원의 넓이 : ${area}`);
+if (num % 2 == 0) {
+  console.log(`${num}은(는) 짝수입니다`);
+} else {
+  console.log(`${num}은(는) 홀수입니다`);
+}
+
+// 70점 이상이면 합격, 그렇지 않으면 불합격
+
+let score = 69;
+let result = "";
+
+if (score > 70) {
+  result = "양호";
+} else if (score == 70) {
+  result = "보통";
+} else {
+  result = "부진";
+}
+
+console.log(result);
