@@ -1,22 +1,6 @@
-let num = 9;
+const scores = [88, 75, 95, 90, 98];
 
-if (num % 2 == 0) {
-  console.log(`${num}은(는) 짝수입니다`);
-} else {
-  console.log(`${num}은(는) 홀수입니다`);
+for (let score of scores) {
+  console.log(score);
 }
-
-// 70점 이상이면 합격, 그렇지 않으면 불합격
-
-let score = 69;
-let result = "";
-
-if (score > 70) {
-  result = "양호";
-} else if (score == 70) {
-  result = "보통";
-} else {
-  result = "부진";
-}
-
-console.log(result);
+console.log(score);
