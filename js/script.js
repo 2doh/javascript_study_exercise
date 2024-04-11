@@ -1,5 +1,25 @@
-let x = -10;
+// 전역 스코프
+let x = 10;
+function fnc() {
+  console.log(x);
+}
 
-do {
-  console.log("안녕!");
-} while (x > 0);
+fnc();
+console.log(x);
+
+// 함수 스코프
+function fnc1() {
+  let y = 11;
+  console.log(y);
+}
+
+fnc1();
+console.log(y); // 지역변수 y로 접근 못함
+
+// 블록 스코프
+function fnc2() {
+  if (true) {
+    let z = 10; // 변수 z는 if문 내 , 즉 블록 내부에서 선언
+  }
+  console.log(z); // 블록 외부에서 뱐수 z에 접근하지 못함
+}
