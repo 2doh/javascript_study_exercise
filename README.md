@@ -135,3 +135,50 @@ console.log(result);
 ```
 
 **find()** 메소드 : 특정 요소를 찾는 조건을 콜백함수를 통해 전달하여 조건에 해당하는 첫 번째 요소 값을 반환
+
+```js
+// 자바스크립트에서는 함수의 매개변수로 함수가 사용될 수 있다.
+// 다른 함수의 매개변수로 전달되는 함수를 콜백 함수라고 한다.
+// scores.find() 메소드에서는 배열 scores의 각 요소에 대해 콜백함수를 시행.
+// 배열의 요소를 순회하면서 콜백 함수의 조건에 맞는 첫 번째 요소 값을 반환.
+// 콜백 함수에 사용된 score는 배열의 각 요소 값을 가지게 된다.
+// scores.find() 메소드는 score, 즉 배열의 요소 값이 90이상인 경우 요소를 반환한다.
+
+const scores = [70, 80, 100, 71, 65];
+
+let arr;
+arr = scores.find((score) => score >= 90);
+
+console.log(arr);
+```
+
+- **forEach()** 메소드 : 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행
+
+```js
+const animals = ["사자", "호랑이", "펭귄", "코끼리"];
+let txt = "";
+
+// 매개변수로 설정된 fnc 함수를 배열 animals의 각 요소에 대해 실행
+animals.forEach(fnc);
+
+// fnc 함수의 매개변수 item, index는 각각 animals의 요소 값과 인덱스를 의미
+function fnc(item, index) {
+  txt += `${index} ${item} <br>`;
+}
+
+document.getElementById("show").innerHTML = txt;
+```
+
+- **map()** 메소드 : 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행하여 얻어진 요소들로 구성된 **새로운** 배열을 반환
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// map()에서 메소드는 forEach()메소드와 달리 매개변수로 사용되는 함수에서 값을 반환하는 return이 존재
+// map() 메소드는 원본의 배열을 그대로 두고 새로운 배열을 생성
+// map() 메소드에 매개변수로 설정된 익명함수를 실행하여 얻어진 요소로 구성된 새로운 배열 반환
+let arr = numbers.map((num) => num * num);
+console.log(arr);
+
+document.getElementById("show").innerHTML = arr;
+```
