@@ -10,10 +10,18 @@
     <!-- 요소 : title, 텍스트 : 자바스크립트 스터디 -->
     <title>자바스크립트 스터디</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      div#box {
+        border: solid 3px red;
+        width: 300px;
+        height: 200px;
+      }
+    </style>
   </head>
   <body>
-    <button id="btn">sad</button>
-    <p id="show"></p>
+    <div id="box" onmousemove="showCoord(event)">
+      <p id="show"></p>
+    </div>
     <script src="js/event.js"></script>
   </body>
 </html>
