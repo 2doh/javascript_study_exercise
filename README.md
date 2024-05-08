@@ -64,7 +64,7 @@ btn.addEventListener("click", function () {
 - onclick : 사용자가 요소를 클릭했을 때
 - ondblclick : 사용자가 요소를 더블 클릭했을 때
 - onmouseover : 마우스 포인터가 요소 위에 올라갔을 때, 자식요소에 대해서도 동작
-- onmouseout : 마우스 포인터가 요소 위에 벗어날 때, 자식요소에 대해서도 동작
+- onmouseout : 마우스 포인터가 요소에서 벗어날 때, 자식요소에 대해서도 동작
 - onmouseenter : 마우스 포인터가 요소 안으로 진입할 때
 - onmouseleave : 마우스 포인터가 요소에서 외부로 나갈 때
 - onmousemove : 마우스 포인터가 요소안에서 움직일 때
@@ -192,4 +192,84 @@ function showCoord(e) {
   let text = "좌표: (" + e.clientX + "," + e.clientY + ")";
   document.getElementById("show").innerHTML = text;
 }
+```
+
+## 15.3 포커스 이벤트
+
+- onfocus : 요소가 포커스를 얻었을 때
+- onblur : 요소가 포커스를 잃었을 때
+- 텍스트나 비밀번호 입력창 안에 마우스를 클릭하면 마우스 커서가 깜빡인다
+- 이런 상태를 포커스를 얻었다고 표현
+- 반대로 입력창 외부를 클릭하면 포커스를 잃게 된다
+
+```html
+<body>
+  <input type="text" id="uid" />
+  <input type="password" id="upw" />
+  <script src="js/event.js"></script>
+</body>
+```
+
+```js
+const userId = document.getElementById("uid");
+
+function changeBgColor1() {
+  userId.style.backgroundColor = "yellow";
+}
+function changeBgColor2() {
+  userId.style.backgroundColor = "gray";
+}
+
+userId.onfocus = function () {
+  changeBgColor1();
+};
+userId.onblur = function () {
+  changeBgColor2();
+};
+
+const userPw = document.getElementById("upw");
+
+function changeBgColor3() {
+  userPw.style.backgroundColor = "red";
+}
+function changeBgColor4() {
+  userPw.style.backgroundColor = "blue";
+}
+
+userPw.onfocus = function () {
+  changeBgColor3();
+};
+
+userPw.onblur = function () {
+  changeBgColor4();
+};
+```
+
+## 15.4 기타 이벤트
+
+### 15.4.1 onchange 이벤트
+
+```html
+<body>
+  <label>
+    사이즈:
+    <select name="size" id="sz">
+      <option value="">선택</option>
+      <option value="small">S</option>
+      <option value="midium">M</option>
+      <option value="large">L</option>
+      <option value="xlarge">XL</option>
+    </select>
+  </label>
+  <p id="show"></p>
+
+  <script src="js/event.js"></script>
+</body>
+```
+
+```js
+const sel = document.getElementById("sz");
+sel.addEventListener("change", function (e) {
+  document.getElementById("show").innerHTML = `선택한 사이즈는 ${e.target.value}입니다.`;
+});
 ```
